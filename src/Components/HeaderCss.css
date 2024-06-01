@@ -1,0 +1,16 @@
+
+
+#headerWrapper{
+background-color: #D9D9D9;
+display: flex;
+width: 800px;
+height: 40px;
+gap: 10px;
+display: flex;
+align-items: center;
+}
+
+#headerWrapper h4{
+    margin-left: 10px;
+    
+}
