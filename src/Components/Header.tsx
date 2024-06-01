@@ -8,7 +8,7 @@ interface HeaderProps {
 
   const Header: React.FC<HeaderProps> = ({ subject, subjectContent, dificulty }) => {
     return (
-      <div id="headerWrapper" >
+      <div className="headerWrapper" >
         <h4>{subject}</h4>
        <h4>{subjectContent}</h4>
         <h4>{dificulty}</h4>
