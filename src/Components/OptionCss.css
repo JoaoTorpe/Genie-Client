@@ -1,0 +1,30 @@
+.optionBody{
+    border: solid red ;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 800px;
+}
+
+.optionBody button{
+    background-color: white;
+    border: 2px solid #3A86FF;
+    border-radius: 5px;
+}
+
+
+.optionBody button:hover{
+    background-color: #3A86FF;
+    border: 2px solid #DAD9D9;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selected{
+    background-color: #3A86FF;
+    border: 2px solid #DAD9D9;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
