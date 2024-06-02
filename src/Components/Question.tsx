@@ -3,18 +3,23 @@ import Header from "./Header"
 import Statement from "./Statement";
 import Option from "./Option";
 import "./Question.css"
+import { Question as QuestionModel } from "../Models/Question";
+import { ReactNode } from "react";
+interface QuestionProps{
+    question:QuestionModel
+}
 
-
-
-const Question: React.FC = ()=>{
+const Question: React.FC<QuestionProps> = ({question})=>{
+    let options = question.options
+    let count =0
     return(
         <div className="question" >
-<Header subject="matematica" subjectContent="Porcentagem" dificulty="facil" /> 
-<Statement text = "Ana decidiu investir R$ 1.500,00 em um aplicativo de renda fixa que oferece juros simples de 1% ao mês. Quantos reais ela receberá após 6 meses de investimento?"/>
-<Option answer="R$ 1.590,00" letterNumber={1} correct={true} />
-<Option answer="R$ 1.590,00" letterNumber={2} correct={true} />
-<Option answer="R$ 1.590,00" letterNumber={3} correct={true} />
-<Option answer="R$ 1.590,00" letterNumber={4} correct={true} />
+<Header subject={question.header.subject} subjectContent={question.header.subjectContent} dificulty={question.header.dificulty} /> 
+<Statement text = {question.statement.text}/>
+{options.map((e):ReactNode=>{
+    count +=1
+    return <Option answer={e.answer} letterNumber={count} correct={e.correct} />
+})}
 </div>
     );
 } 
