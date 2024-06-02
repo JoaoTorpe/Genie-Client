@@ -1,5 +1,5 @@
 import React from "react";
-import "./StatementCss.css"
+import "./Statement.css"
 interface StatementProps{
     text:String
 }

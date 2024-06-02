@@ -5,7 +5,8 @@
 
 .questionsContainer{
     border: solid red;
-    height: 100vh;
+    margin-top: 10px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;

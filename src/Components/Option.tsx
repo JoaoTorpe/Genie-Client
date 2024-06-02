@@ -1,5 +1,5 @@
 
-import "./OptionCss.css"
+import "./Option.css"
 
 interface OptionProps{
     answer:string

@@ -7,6 +7,7 @@ function App() {
   return (
     <div className='questionsContainer'>
    <Question/>
+   <Question/>
    </div>
    
   )

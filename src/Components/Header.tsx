@@ -1,5 +1,5 @@
 import React from "react";
-import "./HeaderCss.css"
+import "./Header.css"
 interface HeaderProps {
     subject: string;
     subjectContent: string;
