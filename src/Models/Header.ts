@@ -2,12 +2,12 @@ export class Header{
 
     subject:string;
     subjectContent:string;
-    dificulty:string;
+    difficulty:string;
     
     constructor(subject: string, subjectContent: string, dificulty: string) {
         this.subject = subject;
         this.subjectContent = subjectContent;
-        this.dificulty = dificulty;
+        this.difficulty = dificulty;
       }
 
 }

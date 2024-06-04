@@ -9,11 +9,11 @@ import {data} from "./DataAccess/Mock"
 import { Statement } from './Models/Statement'
 import { ReactNode } from 'react'
 import run from './DataAccess/Gemini-start'
-
+import { questionsDataCollection } from './DataAccess/Gemini-start'
 function App() {
 let questions: QuestionModel[] = []
-data.forEach(e => createQuestionObject(e,questions))
-run()
+questionsDataCollection.forEach(e => createQuestionObject(e,questions))
+run("Matematica","Juros simples","Facil")
 
   return (
     <div className='questionsContainer'>
