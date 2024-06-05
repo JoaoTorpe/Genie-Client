@@ -5,7 +5,7 @@ const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY)
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
-export let questionsDataCollection: any[]=[]
+export  let questionsDataCollection: any[]=[]
 
  async function run(difficulty:string , subject:string,mainSubject:string ) {
     const prompt = `const prompt = ' {"materia":"matematica",
@@ -43,7 +43,9 @@ export let questionsDataCollection: any[]=[]
     const text = response.text();
      let newQuestionData = JSON.parse(text)
      questionsDataCollection.push(newQuestionData)
-    console.log(newQuestionData);
+     console.log(newQuestionData);
+     //Persistir na API
+    return newQuestionData
    
   }
 
