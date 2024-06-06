@@ -1,9 +1,12 @@
 import axios from "axios";
+import { setItem } from "../DataAccess/Storage";
 
-async function  registerUser(userDataString:any){
-let apiUrl = import.meta.env.VITE_API_URL
+
+const apiUrl = import.meta.env.VITE_API_URL
+export async function  registerUser(userData:any){
+
     try{
-    const res = await axios.post(apiUrl+"users/register",userDataString)
+    const res = await axios.post(apiUrl+"users/register",userData)
         if(res.status === 200){
             location.href = location.href.replace("register","login")
         }
@@ -12,10 +15,27 @@ let apiUrl = import.meta.env.VITE_API_URL
         alert("Usuario já existe no sistema")
 
     }
+}
 
+export async function login(userData:any) {
 
+    try{
+        const res = await axios.post(apiUrl+"users/login",userData)
+        if(res.status === 200){
+            let token = res.data.token
+            setItem(token)
+           location.href = location.href.replace("login","app")
+           
+        }
+        
+        
+    }
+    catch(erro:any){
+        alert("Falha ao logar")
+    }
+    
 
 }
 
 
-export default registerUser
+

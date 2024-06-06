@@ -1,5 +1,5 @@
 import "./Modals.css"
-import registerUser from "../Services/AuthService"
+import {registerUser} from "../Services/AuthService"
 
 export const RegisterModal =()=>{
 const handleSubmit = async (event:any)=>{
