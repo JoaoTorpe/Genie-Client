@@ -1,12 +1,18 @@
 
 import './App.css'
 import "./App.css"
-
-
-
+import { QuestionModal } from './Modals/QuestionModal';
+import { toggleDisplay } from './Modals/QuestionModal';
  function App() {
 
-return <h3>Aqui é o App</h3>
+return (
+<div id='mainPage' >
+    <button onClick={toggleDisplay} id='createQuestion'>+</button>
+    <QuestionModal/>
+
+
+</div>
+);
   
 }
 

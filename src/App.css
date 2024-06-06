@@ -2,6 +2,27 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#createQuestion{
+    cursor: pointer;
+    font-size: 40px;
+    border-radius: 5px;
+    width: 50px;
+    position: relative;
+    left: 10px;
+    top: 10px;
+    background: white;
+    color: black;
+    border: 2px solid #3A86FF;
+    text-align: center;
+    transition: 0.2s;
+}
+
+#createQuestion:hover{
+    background: #3A86FF;
+    color: white;
+    border: none;
+    transition: 0.2s;
+}
 
 .questionsContainer{
     margin-top: 10px;
