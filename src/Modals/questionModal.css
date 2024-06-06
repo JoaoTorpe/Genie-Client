@@ -1,0 +1,22 @@
+#questionFormContainer{
+   position: relative;
+   top: 15px;
+   left: 10px;
+  }
+
+#questionForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.displayNone{
+    display: none;
+}
+.displayFlex{
+    display: flex;
+}
+
+#generateQuestionButton{
+    cursor: pointer;
+}
