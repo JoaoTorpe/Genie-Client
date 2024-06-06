@@ -5,9 +5,11 @@ const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY)
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
-export  let questionsDataCollection: any[]=[]
+
 
  async function run(difficulty:string , subject:string,mainSubject:string ) {
+    try{
+
     const prompt = `const prompt = ' {"materia":"matematica",
     "assunto":"juros",
     "dificuldade":"facil",
@@ -42,10 +44,15 @@ export  let questionsDataCollection: any[]=[]
     const response = await result.response;
     const text = response.text();
      let newQuestionData = JSON.parse(text)
-     questionsDataCollection.push(newQuestionData)
      console.log(newQuestionData);
      //Persistir na API
     return newQuestionData
+    }
+    catch(erro:any){
+      alert("Falha ao gerar questão, tente novamente!")
+    }
+
+
    
   }
 
