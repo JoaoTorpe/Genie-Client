@@ -29,7 +29,7 @@ export const QuestionModal= ()=>{
 
 
     return(
-        <div id="questionFormContainer" className="displayFlex" >
+        <div id="questionFormContainer" className="displayNone" >
 
             <form id="questionForm" onSubmit={handleSubmit} >
             

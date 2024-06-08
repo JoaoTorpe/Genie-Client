@@ -1,5 +1,7 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import axios from "axios";
+import { getItem } from "./Storage";
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY)
 
@@ -16,9 +18,9 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
        "enunciado": "Ana decidiu investir R$ 1.500,00 em um aplicativo de renda fixa que oferece juros simples de 1% ao mês. Quantos reais ela receberá após 6 meses de investimento?",
        "alternativas": [
          { "texto": "R$ 1.590,00", "correta": true },
-         { "texto": "R$ 1.650,00" },
-         { "texto": "R$ 1.710,00" },
-         { "texto": "R$ 1.800,00" }
+         { "texto": "R$ 1.650,00","correta": false },
+         { "texto": "R$ 1.710,00","correta": false },
+         { "texto": "R$ 1.800,00" ,"correta": false}
        ],
        "dica": "Para resolver este problema, podemos utilizar a regra de três simples, que estabelece uma proporcionalidade entre duas grandezas.",
        "resolucao": [
@@ -44,16 +46,32 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
     const response = await result.response;
     const text = response.text();
      let newQuestionData = JSON.parse(text)
+     postQuestion(newQuestionData)
      console.log(newQuestionData);
-     //Persistir na API
-    return newQuestionData
     }
     catch(erro:any){
       alert("Falha ao gerar questão, tente novamente!")
     }
 
+  }
 
-   
+  async function postQuestion(newQuestionData:any){
+
+let bearer={
+  headers: { Authorization: getItem()}
+}
+
+    try{
+   let res =  await axios.post(import.meta.env.VITE_API_URL+"questions",newQuestionData,bearer)
+      
+   console.log(res.data)
+
+    }
+    catch(error:any){
+      alert("Falha ao salvar questão")
+
+    }
+
   }
 
 export default run
