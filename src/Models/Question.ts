@@ -7,9 +7,9 @@ export class Question{
     statement:Statement
     options:Option[]
     tip:string
-    solve:string
+    solve:string[]
 
-constructor(header:Header,statement:Statement,options:Option[],tip:string,solve:string){
+constructor(header:Header,statement:Statement,options:Option[],tip:string,solve:string[]){
 
 this.header = header
 this.statement = statement

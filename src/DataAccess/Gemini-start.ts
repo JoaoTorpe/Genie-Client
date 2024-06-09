@@ -1,7 +1,6 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai"
-import axios from "axios";
-import { getItem } from "./Storage";
+import { postQuestion } from "./ApiAccess";
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY)
 
@@ -47,7 +46,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
     const text = response.text();
      let newQuestionData = JSON.parse(text)
      postQuestion(newQuestionData)
-     console.log(newQuestionData);
+     console.log(newQuestionData.data);
     }
     catch(erro:any){
       alert("Falha ao gerar questão, tente novamente!")
@@ -55,24 +54,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
   }
 
-  async function postQuestion(newQuestionData:any){
-
-let bearer={
-  headers: { Authorization: getItem()}
-}
-
-    try{
-   let res =  await axios.post(import.meta.env.VITE_API_URL+"questions",newQuestionData,bearer)
-      
-   console.log(res.data)
-
-    }
-    catch(error:any){
-      alert("Falha ao salvar questão")
-
-    }
-
-  }
+ 
 
 export default run
  
