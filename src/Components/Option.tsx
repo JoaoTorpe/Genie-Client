@@ -1,14 +1,16 @@
 
+import axios from "axios"
 import "./Option.css"
 
 interface OptionProps{
     answer:string
     letterNumber:number
     correct:Boolean
+    questionId:number
 } 
 
 
-const Option: React.FC<OptionProps> = ({answer,letterNumber,correct})=>{
+const Option: React.FC<OptionProps> = ({answer,letterNumber,correct,questionId})=>{
 let letter:any;
 
 switch (letterNumber) {
@@ -33,9 +35,19 @@ switch (letterNumber) {
       break;
   }
 
+  function handleClick(){
+    axios.put(import.meta.env.VITE_API_URL+"questions",{
+      id:questionId,
+      correct:correct
+    })
+      
+    location.reload()
+
+  }
+
 return(
 <div className="optionBody" data-isCorrect={correct} >
-<button  >{letter}</button>
+<button onClick={handleClick} >{letter}</button>
 <h3>{answer}</h3>
 </div>
 );

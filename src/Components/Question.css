@@ -2,4 +2,29 @@
    margin-top: 20px;
     width: 800px;
     border-bottom: solid black;
+    position: relative;
+}
+
+.question span{
+position: absolute;
+right: 20px;
+bottom: 10px;
+padding: 10px;
+border-radius: 10px;
+color: white;
+font-weight: 600;
+}
+
+.displayNone{
+    display: none;
+}
+
+.correct{
+background-color: rgb(3, 176, 3);
+
+}
+
+.wrong{
+    background-color: rgb(205, 28, 28);
+
 }

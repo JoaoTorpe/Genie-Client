@@ -20,19 +20,20 @@ import { Option } from './Models/Option';
                 let tempArray:any[] = []
                 fetchedData.map((e:any)=>{
                     
-
+                let isQuestionCorrect = e.correct    
+                let id = e.id
                 let header = new Header(e.subject,e.topic,e.difficulty)
                 let statement = new Statement(e.command)
 
                 let optionsArray:any[] = []
                 e.answersList.forEach((e:any)=>{
-                    let newOption = new Option(e.texto,e.correta)
+                    let newOption = new Option(e.texto,e.correta,id)
                     optionsArray.push(newOption)
                 })
 
                 let hint = e.tip
                 let solve = e.resolution
-                    let newQuestionObject = new QuestionModel(header,statement,optionsArray,hint,solve)
+                    let newQuestionObject = new QuestionModel(header,statement,optionsArray,hint,solve,id,isQuestionCorrect)
                     tempArray.unshift(newQuestionObject)
                     
 
@@ -47,8 +48,6 @@ import { Option } from './Models/Option';
         }
         fetchData();
     }, []);
-
-
 return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>

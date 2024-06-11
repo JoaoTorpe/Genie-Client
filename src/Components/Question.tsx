@@ -18,11 +18,27 @@ const Question: React.FC<QuestionProps> = ({question})=>{
 <Statement text = {question.statement.text}/>
 {options.map((e):ReactNode=>{
     count +=1
-    return <Option answer={e.answer} letterNumber={count} correct={e.correct} />
+    return <Option answer={e.answer} letterNumber={count} correct={e.correct} questionId={e.questionId} />
 })}
+
+{<Span correct={question.correct} /> }
+
 </div>
     );
 } 
 
+const Span = ({correct}:any)=>{
+
+    if(correct){
+        return <span className="correct" >Correto</span>
+    }
+    else if(correct === false){
+        return  <span className="wrong" >Errado</span>
+    }
+    else{
+        return  <span className="" ></span>
+    }
+
+}
 
 export default Question

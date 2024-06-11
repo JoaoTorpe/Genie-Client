@@ -17,6 +17,7 @@ export const QuestionModal= ()=>{
          const handleSubmit = async (event:any)=>{
             event.preventDefault()
             let formData = new FormData(event.target)
+            alert("Gerando Questão.....")
                 if(formData.get("subject") && formData.get("topic")&&formData.get("difficulty")){
                     run(formData.get("difficulty") as string,formData.get("subject") as string,formData.get("topic") as string)
                 }
