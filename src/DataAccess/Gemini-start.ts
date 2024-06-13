@@ -8,7 +8,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
 
 
- async function run(difficulty:string , subject:string,mainSubject:string ) {
+ async function run(difficulty:string , subject:string,topic:string ) {
     try{
 
     const prompt = `const prompt = ' {"materia":"matematica",
@@ -39,7 +39,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
      }' 
      ESTRITAMENTE de acordo com esse modelo crie uma questao de 
-     `+subject+` sobre `+mainSubject+`de dificuldade`+difficulty+`Sega exatamente o modelo e retorne uma resposta em json ,retorne sem utilizar markdown apenas a string pura, nao retorne nada alem disso`
+     `+subject+` sobre `+topic+`de dificuldade`+difficulty+`Sega exatamente o modelo e retorne uma resposta em json ,retorne sem utilizar markdown apenas a string pura, nao retorne nada alem disso`
   
     const result = await model.generateContent(prompt);
     const response = await result.response;
