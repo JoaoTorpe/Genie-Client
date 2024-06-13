@@ -1,7 +1,7 @@
 .question{
    margin-top: 20px;
     width: 800px;
-    border-bottom: solid black;
+    border-bottom:1px solid black;
     position: relative;
 }
 

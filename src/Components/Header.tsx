@@ -2,16 +2,16 @@ import React from "react";
 import "./Header.css"
 interface HeaderProps {
     subject: string;
-    subjectContent: string;
-    difficulty: string;
+    topic: string;
+    
   }
 
-  const Header: React.FC<HeaderProps> = ({ subject, subjectContent, difficulty: difficulty }) => {
+  const Header: React.FC<HeaderProps> = ({ subject, topic }) => {
     return (
       <div className="headerWrapper" >
         <h4>{subject}</h4>
-       <h4>{subjectContent}</h4>
-        <h4>{difficulty}</h4>
+       <h4>{topic}</h4>
+       
       </div>
     );
   };
