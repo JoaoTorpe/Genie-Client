@@ -14,7 +14,7 @@ const Question: React.FC<QuestionProps> = ({question})=>{
     let count =0
     return(
         <div className="question" >
-<Header subject={question.header.subject} subjectContent={question.header.subjectContent} difficulty={question.header.difficulty} /> 
+<Header subject={question.header.subject} topic={question.header.subjectContent}  /> 
 <Statement text = {question.statement.text}/>
 {options.map((e):ReactNode=>{
     count +=1

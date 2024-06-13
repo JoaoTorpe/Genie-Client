@@ -1,6 +1,6 @@
 #questionFormContainer{
-   position: relative;
-   top: 15px;
+   position: absolute;
+   top: 80px;
    left: 10px;
   }
 

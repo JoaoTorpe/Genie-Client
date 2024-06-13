@@ -18,8 +18,8 @@ export const QuestionModal= ()=>{
             event.preventDefault()
             let formData = new FormData(event.target)
             alert("Gerando Questão.....")
-                if(formData.get("subject") && formData.get("topic")&&formData.get("difficulty")){
-                    run(formData.get("difficulty") as string,formData.get("subject") as string,formData.get("topic") as string)
+                if(formData.get("topic")){
+                    run(formData.get("topic") as string)
                 }
                 else{
                     alert("Preencha todos os campos!")
@@ -34,32 +34,19 @@ export const QuestionModal= ()=>{
 
             <form id="questionForm" onSubmit={handleSubmit} >
             
-            <input list = "subjects" name="subject" />
-            <datalist id="subjects" >
-            <option value="Matematica"/>
-            </datalist>
+           
 
             <input list = "topics" name="topic" />
 
             <datalist id="topics" >
             <option value="Juros simples"/>
-            <option value="Juros Composts"/>
+            <option value="Juros Compostos"/>
             <option value="Regra de três simples"/>
             <option value="Regra de três composta"/>
             <option value="Adição"/>
             <option value="Subtração"/>
             <option value="Divisão"/>
             </datalist>
-            <div>
-            <input type="radio" id="facil" name="difficulty" value="facil"/>
-            <label htmlFor="facil">Fácil</label>
-
-            <input type="radio" id="medio" name="difficulty" value="medio"/>
-            <label htmlFor="medio">Médio</label>
-
-            <input type="radio" id="dificil" name="difficulty" value="dificil"/>
-            <label htmlFor="dificil">Difícil</label>
-            </div>
         <button id="generateQuestionButton" type="submit" >Gerar</button>
 
             </form>
