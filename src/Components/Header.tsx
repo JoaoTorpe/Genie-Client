@@ -11,7 +11,6 @@ interface HeaderProps {
       <div className="headerWrapper" >
         <h4>{subject}</h4>
        <h4>{topic}</h4>
-       
       </div>
     );
   };
