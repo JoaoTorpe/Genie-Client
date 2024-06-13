@@ -52,6 +52,7 @@ return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>
     <QuestionModal/>
+    { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{
        return  <Question question={e} />
@@ -62,7 +63,15 @@ return (
 );
 }
 
-
+const Empty = ()=>{
+    return (
+        <div className='empty' >
+            <span>😑</span>
+            <h1>Você não possui questões.</h1>
+            <h3>Adicione uma questão!</h3>
+        </div>
+    )
+}
 
 
 
