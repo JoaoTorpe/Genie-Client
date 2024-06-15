@@ -9,6 +9,29 @@ import {Question as QuestionModel} from "./Models/Question"
 import { Header } from './Models/Header';
 import { Statement } from './Models/Statement';
 import { Option } from './Models/Option';
+
+
+
+export const createQuestionObject = (e:any)=>{
+
+    let isQuestionCorrect = e.correct    
+    let id = e.id
+    let header = new Header(e.subject,e.topic,e.difficulty)
+    let statement = new Statement(e.command)
+
+    let optionsArray:any[] = []
+    e.answersList.forEach((e:any)=>{
+        let newOption = new Option(e.texto,e.correta,id)
+        optionsArray.push(newOption)
+    })
+
+        let hint = e.tip
+        return new QuestionModel(header,statement,optionsArray,hint,id,isQuestionCorrect)
+        
+
+}
+
+
  function App() {
 
     const [displayArray, setDisplayArray] = useState<any[]>([]);
@@ -19,27 +42,12 @@ import { Option } from './Models/Option';
                 let fetchedData = await getAllQuestions();
                 let tempArray:any[] = []
                 fetchedData.map((e:any)=>{
-                    
-                let isQuestionCorrect = e.correct    
-                let id = e.id
-                let header = new Header(e.subject,e.topic,e.difficulty)
-                let statement = new Statement(e.command)
-
-                let optionsArray:any[] = []
-                e.answersList.forEach((e:any)=>{
-                    let newOption = new Option(e.texto,e.correta,id)
-                    optionsArray.push(newOption)
-                })
-
-                let hint = e.tip
-                let solve = e.resolution
-                    let newQuestionObject = new QuestionModel(header,statement,optionsArray,hint,id,isQuestionCorrect)
-                    tempArray.unshift(newQuestionObject)
-                    
+                  let newObj =  createQuestionObject(e)
+                tempArray.unshift(newObj)
 
                })
-
                setDisplayArray(tempArray)
+               
                
 
             } catch (error) {
@@ -47,11 +55,11 @@ import { Option } from './Models/Option';
             }
         }
         fetchData();
-    }, []);
+    }, [displayArray]);
 return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>
-    <QuestionModal/>
+    <QuestionModal setDisplayArray={setDisplayArray} />
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{
