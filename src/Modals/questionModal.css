@@ -20,3 +20,9 @@
 #generateQuestionButton{
     cursor: pointer;
 }
+
+.loadingIconContainer{
+   position: relative;
+   bottom: 20px;
+   left: 650px;
+}
