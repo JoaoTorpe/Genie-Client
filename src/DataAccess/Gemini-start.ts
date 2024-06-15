@@ -22,7 +22,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro"});
     ],
     "dica": "Dica simples direta e com no maximo 4 linhas"
 }
-     ESTRITAMENTE de acordo com esse modelo crie uma questao de 
+     usando esse json como exemplo crie uma questao de 
      matematica`+` sobre `+topic+`Siga exatamente o modelo e retorne uma resposta em json ,
      retorne sem utilizar markdown apenas a string pura, nao retorne nada alem disso.evite repetir os numeros e nomes da questao anterior `
   
@@ -30,8 +30,8 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro"});
     const response = await result.response;
     const text = response.text();
      let newQuestionData = JSON.parse(text)
-     postQuestion(newQuestionData)
-     console.log(newQuestionData.data);
+    return postQuestion(newQuestionData)
+     
     }
     catch(erro:any){
       alert("Falha ao gerar questão, tente novamente!")

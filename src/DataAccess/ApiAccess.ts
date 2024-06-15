@@ -11,8 +11,8 @@ export async function postQuestion(newQuestionData:any){
     
         try{
        let res =  await axios.post(import.meta.env.VITE_API_URL+"questions",newQuestionData,bearer)
-          location.reload()
-    console.log(res.data)
+          return res.data
+      
         }
         catch(error:any){
           alert("Falha ao salvar questão")
@@ -23,8 +23,6 @@ export async function postQuestion(newQuestionData:any){
 
       export async function getAllQuestions() {
 
-
-        
         try{
             let res =  await axios.get(import.meta.env.VITE_API_URL+"questions",bearer)
 
