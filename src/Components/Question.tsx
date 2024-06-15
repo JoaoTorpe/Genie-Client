@@ -29,7 +29,7 @@ const Question: React.FC<QuestionProps> = ({question})=>{
 
 const Span = ({correct}:any)=>{
 
-    if(correct){
+    if(correct === true){
         return <span className="correct" >Correto</span>
     }
     else if(correct === false){
