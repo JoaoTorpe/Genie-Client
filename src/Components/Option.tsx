@@ -7,10 +7,11 @@ interface OptionProps{
     letterNumber:number
     correct:Boolean
     questionId:number
+    setDisplayArray: React.Dispatch<React.SetStateAction<any[]>>
 } 
 
 
-const Option: React.FC<OptionProps> = ({answer,letterNumber,correct,questionId})=>{
+const Option: React.FC<OptionProps> = ({answer,letterNumber,correct,questionId,setDisplayArray})=>{
 let letter:any;
 
 switch (letterNumber) {
@@ -41,7 +42,7 @@ switch (letterNumber) {
       correct:correct
     })
       
-    location.reload()
+   setDisplayArray(prev =>[...prev])
 
   }
 

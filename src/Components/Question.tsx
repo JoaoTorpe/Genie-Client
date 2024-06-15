@@ -7,9 +7,10 @@ import { Question as QuestionModel } from "../Models/Question";
 import { ReactNode } from "react";
 interface QuestionProps{
     question:QuestionModel
+    setDisplayArray: React.Dispatch<React.SetStateAction<any[]>>
 }
 
-const Question: React.FC<QuestionProps> = ({question})=>{
+const Question: React.FC<QuestionProps> = ({ question, setDisplayArray })=>{
     let options = question.options
     let count =0
     return(
@@ -18,7 +19,7 @@ const Question: React.FC<QuestionProps> = ({question})=>{
 <Statement text = {question.statement.text}/>
 {options.map((e):ReactNode=>{
     count +=1
-    return <Option answer={e.answer} letterNumber={count} correct={e.correct} questionId={e.questionId} />
+    return <Option answer={e.answer} letterNumber={count} correct={e.correct} questionId={e.questionId} setDisplayArray={setDisplayArray} />
 })}
 
 {<Span correct={question.correct} /> }

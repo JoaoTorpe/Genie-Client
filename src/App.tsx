@@ -63,7 +63,7 @@ return (
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{
-       return  <Question question={e} />
+       return  <Question setDisplayArray={setDisplayArray} question={e} />
     })  }
     </div>
 
