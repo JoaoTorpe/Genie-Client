@@ -33,7 +33,7 @@ import { Option } from './Models/Option';
 
                 let hint = e.tip
                 let solve = e.resolution
-                    let newQuestionObject = new QuestionModel(header,statement,optionsArray,hint,solve,id,isQuestionCorrect)
+                    let newQuestionObject = new QuestionModel(header,statement,optionsArray,hint,id,isQuestionCorrect)
                     tempArray.unshift(newQuestionObject)
                     
 
