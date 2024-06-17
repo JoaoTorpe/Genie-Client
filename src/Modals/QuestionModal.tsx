@@ -15,7 +15,13 @@ const element =  document.getElementById("questionFormContainer")
    }
 }
 
-export const QuestionModal= ({ setDisplayArray }: { setDisplayArray: React.Dispatch<React.SetStateAction<any[]>> })=>{
+interface props{
+    setDisplayArray: React.Dispatch<React.SetStateAction<any[]>>,
+    setLoadDisplay :  React.Dispatch<React.SetStateAction<boolean>>
+
+}
+
+export const QuestionModal: React.FC<props>= ({ setDisplayArray , setLoadDisplay})=>{
 
     const [loading, setLoading] = useState(false);
 
@@ -30,6 +36,7 @@ export const QuestionModal= ({ setDisplayArray }: { setDisplayArray: React.Dispa
                    let data = await run(formData.get("topic") as string)
                     let obj = createQuestionObject(data)
                     setDisplayArray(prev => [...prev,obj])
+                    setLoadDisplay(prev => !prev)
                         }
                         catch(error:any){
                                 alert("Erro ao enviar dados do modal para API")

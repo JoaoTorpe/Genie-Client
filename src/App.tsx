@@ -35,6 +35,7 @@ export const createQuestionObject = (e:any)=>{
  function App() {
 
     const [displayArray, setDisplayArray] = useState<any[]>([]);
+    const [loadDisplay, setLoadDisplay] = useState<boolean>(false);
     
     useEffect(() => {
         async function fetchData() {
@@ -55,15 +56,15 @@ export const createQuestionObject = (e:any)=>{
             }
         }
         fetchData();
-    }, [displayArray]);
+    }, [loadDisplay]);
 return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>
-    <QuestionModal setDisplayArray={setDisplayArray} />
+    <QuestionModal setLoadDisplay={setLoadDisplay}  setDisplayArray={setDisplayArray} />
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{
-       return  <Question setDisplayArray={setDisplayArray} question={e} />
+       return  <Question setLoadDisplay={setLoadDisplay} setDisplayArray={setDisplayArray} question={e} />
     })  }
     </div>
 
