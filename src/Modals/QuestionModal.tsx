@@ -1,7 +1,6 @@
 
 import "./questionModal.css"
 import run from "../DataAccess/Gemini-start"
-import { createQuestionObject } from "../App"
 import { useState } from "react"
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -16,12 +15,11 @@ const element =  document.getElementById("questionFormContainer")
 }
 
 interface props{
-    setDisplayArray: React.Dispatch<React.SetStateAction<any[]>>,
     setLoadDisplay :  React.Dispatch<React.SetStateAction<boolean>>
 
 }
 
-export const QuestionModal: React.FC<props>= ({ setDisplayArray , setLoadDisplay})=>{
+export const QuestionModal: React.FC<props>= ({setLoadDisplay})=>{
 
     const [loading, setLoading] = useState(false);
 
@@ -33,10 +31,8 @@ export const QuestionModal: React.FC<props>= ({ setDisplayArray , setLoadDisplay
                 if(formData.get("topic")){
 
                         try{
-                   let data = await run(formData.get("topic") as string)
-                    let obj = createQuestionObject(data)
-                    setDisplayArray(prev => [...prev,obj])
-                    setLoadDisplay(prev => !prev)
+                    await run(formData.get("topic") as string)
+                   
                         }
                         catch(error:any){
                                 alert("Erro ao enviar dados do modal para API")
@@ -44,6 +40,7 @@ export const QuestionModal: React.FC<props>= ({ setDisplayArray , setLoadDisplay
                         }
                         finally{
                                 setLoading(false)
+                                setLoadDisplay(prev => !prev)
                         }
 
                 }

@@ -45,7 +45,7 @@ export const createQuestionObject = (e:any)=>{
                 let tempArray:any[] = []
                 fetchedData.map((e:any)=>{
                   let newObj =  createQuestionObject(e)
-                tempArray.unshift(newObj)
+                tempArray.push(newObj)
 
                })
                setDisplayArray(tempArray)
@@ -67,7 +67,7 @@ return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>
     <button onClick={handleLogout}  className='LogoutBtn' >Logout</button>
-    <QuestionModal setLoadDisplay={setLoadDisplay}  setDisplayArray={setDisplayArray} />
+    <QuestionModal setLoadDisplay={setLoadDisplay}/>
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{

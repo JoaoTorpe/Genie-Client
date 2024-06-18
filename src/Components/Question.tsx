@@ -11,7 +11,7 @@ interface QuestionProps{
     setLoadDisplay :  React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Question: React.FC<QuestionProps> = ({ question, setDisplayArray,setLoadDisplay })=>{
+const Question: React.FC<QuestionProps> = ({ question,setLoadDisplay })=>{
     let options = question.options
     let count =0
     return(
@@ -20,7 +20,7 @@ const Question: React.FC<QuestionProps> = ({ question, setDisplayArray,setLoadDi
 <Statement text = {question.statement.text}/>
 {options.map((e):ReactNode=>{
     count +=1
-    return <Option  setLoadDisplay={setLoadDisplay} answer={e.answer} letterNumber={count} correct={e.correct} questionId={e.questionId} setDisplayArray={setDisplayArray} />
+    return <Option  setLoadDisplay={setLoadDisplay} answer={e.answer} letterNumber={count} correct={e.correct} questionId={e.questionId} />
 })}
 
 {<Span correct={question.correct} /> }
