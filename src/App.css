@@ -7,7 +7,7 @@
     font-size: 40px;
     border-radius: 5px;
     width: 50px;
-    position: relative;
+    position: absolute;
     left: 10px;
     top: 10px;
     background: white;
@@ -20,7 +20,7 @@
 #createQuestion:hover{
     background: #3A86FF;
     color: white;
-    border: none;
+    border: white;
     transition: 0.2s;
 }
 
@@ -48,4 +48,27 @@
 
     .empty span{
         font-size: 80px ;
+    }
+
+    .LogoutBtn{
+        cursor: pointer;
+ background: white;
+    color: black;
+    border: 2px solid #3A86FF;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 800;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    transition: 0.2s;
+    }
+
+    .LogoutBtn:hover{
+
+ background: #3A86FF;
+    color: white;
+    border: white;
+    transition: 0.2s;
+
     }

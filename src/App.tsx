@@ -9,6 +9,7 @@ import {Question as QuestionModel} from "./Models/Question"
 import { Header } from './Models/Header';
 import { Statement } from './Models/Statement';
 import { Option } from './Models/Option';
+import { clearStorage } from './DataAccess/Storage';
 
 
 
@@ -48,8 +49,6 @@ export const createQuestionObject = (e:any)=>{
 
                })
                setDisplayArray(tempArray)
-               
-               
 
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -57,9 +56,17 @@ export const createQuestionObject = (e:any)=>{
         }
         fetchData();
     }, [loadDisplay]);
+
+const handleLogout = ()=>{
+    clearStorage()
+    location.reload()
+}
+
+
 return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} id='createQuestion'>+</button>
+    <button onClick={handleLogout}  className='LogoutBtn' >Logout</button>
     <QuestionModal setLoadDisplay={setLoadDisplay}  setDisplayArray={setDisplayArray} />
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
