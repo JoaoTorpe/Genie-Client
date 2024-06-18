@@ -53,12 +53,15 @@ export const QuestionModal: React.FC<props>= ({ setDisplayArray , setLoadDisplay
         }
 
        
+        const LoadStyle: React.CSSProperties = {
+            marginTop:'40px'
+        }
 
 
     return(
        <div>
         <div className="loadingIconContainer" >
-        <ClipLoader   loading={loading} color="#3A86FF" speedMultiplier={1}/>
+        <ClipLoader cssOverride={LoadStyle} loading={loading} color="#3A86FF" speedMultiplier={1}/>
         </div>
         <div id="questionFormContainer" className="displayNone" >
 

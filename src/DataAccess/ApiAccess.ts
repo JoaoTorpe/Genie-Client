@@ -25,7 +25,7 @@ export async function postQuestion(newQuestionData:any){
 
         try{
             let res =  await axios.get(import.meta.env.VITE_API_URL+"questions",bearer)
-
+            
             return res.data
 
         }
