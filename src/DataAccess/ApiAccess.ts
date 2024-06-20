@@ -36,3 +36,14 @@ export async function postQuestion(newQuestionData:any){
 
       }
 
+      export async function putCorrect(questionId:number,correct:Boolean) {
+        
+       const res = await axios.put(import.meta.env.VITE_API_URL+"questions",{
+          id:questionId,
+          correct:correct
+        }, bearer)
+       
+          return res.data
+       
+      }
+

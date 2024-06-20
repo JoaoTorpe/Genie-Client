@@ -24,7 +24,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro"});
 }
      usando esse json como exemplo crie uma questao de 
      matematica`+` sobre `+topic+`Siga exatamente o modelo e retorne uma resposta em json ,
-     retorne sem utilizar markdown apenas a string pura, nao retorne nada alem disso.evite repetir os numeros das questoes anteriores, evite os numeros 5,3,2 `
+     retorne sem utilizar markdown apenas a string pura, nao retorne nada alem disso.evite repetir os numeros das questoes anteriores, evite os numeros 5,3,2. Evite deixar a primeira alternativa como correta `
   
     const result = await model.generateContent(prompt);
     const response = await result.response;

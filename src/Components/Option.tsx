@@ -1,6 +1,6 @@
 
-import axios from "axios"
 import "./Option.css"
+import { putCorrect } from "../DataAccess/ApiAccess"
 
 interface OptionProps{
     answer:string
@@ -36,20 +36,15 @@ switch (letterNumber) {
       break;
   }
 
-  function handleClick(){
-    axios.put(import.meta.env.VITE_API_URL+"questions",{
-      id:questionId,
-      correct:correct
-    })
-
+  async function  handleClick(){
+     putCorrect(questionId,correct)
     .then(()=>{
-
-      setLoadDisplay(prev=> !prev)
+      setLoadDisplay(prev=>!prev)
     })
       
-
   }
 
+   
 return(
 <div className="optionBody" data-isCorrect={correct} >
 <button onClick={handleClick} >{letter}</button>
