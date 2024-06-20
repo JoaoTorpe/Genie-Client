@@ -29,7 +29,13 @@ const Question: React.FC<QuestionProps> = ({ question,setLoadDisplay })=>{
     );
 } 
 
-const Span = ({correct}:any)=>{
+interface spanProp{
+
+    correct:boolean
+
+}
+
+const Span:React.FC<spanProp> = ({correct})=>{
 
     if(correct === true){
         return <span className="correct" >Correto</span>
