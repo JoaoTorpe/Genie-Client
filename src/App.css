@@ -2,7 +2,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#createQuestion{
+#mainPage{position: relative;}
+
+.createQuestion{
     cursor: pointer;
     font-size: 40px;
     border-radius: 5px;
@@ -17,7 +19,7 @@
     transition: 0.2s;
 }
 
-#createQuestion:hover{
+.createQuestion:hover{
     background: #3A86FF;
     color: white;
     border: white;
@@ -39,9 +41,9 @@
         border-radius: 20px ;
         width: 600px;
         height: 300px;
-        position: relative;
+        position: absolute;
         top: 20vh;
-        left: 30vw;
+        left: 25%;
         
         text-align: center;
     }
@@ -71,4 +73,43 @@
     border: white;
     transition: 0.2s;
 
+    }
+
+    .chartContainer{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 10px;
+        left: 25%;
+        padding: 60px;
+        height: 400px;
+        width: 500px;
+       background-color: white;
+        border: solid #3A86FF;
+        box-shadow: inset;
+        border-radius:15px;
+    }
+
+    .showChart{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background: white;
+        border: 2px solid #3A86FF;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 25px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .showChart:hover{  
+ background: #3A86FF;
+ color: white;
+ border: white;
+ transition: 0.2s;
     }
