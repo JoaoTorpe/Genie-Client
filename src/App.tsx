@@ -10,7 +10,9 @@ import { Header } from './Models/Header';
 import { Statement } from './Models/Statement';
 import { Option } from './Models/Option';
 import { clearStorage } from './DataAccess/Storage';
-
+import { Doughnut} from 'react-chartjs-2';
+import { Chart, ArcElement,Tooltip,Legend } from 'chart.js'
+Chart.register(ArcElement,Tooltip,Legend);
 
 
 export const createQuestionObject = (e:any)=>{
@@ -65,8 +67,9 @@ const handleLogout = ()=>{
 
 return (
 <div id='mainPage' >
-    <button onClick={toggleDisplay} id='createQuestion'>+</button>
+    <button onClick={toggleDisplay} className='createQuestion'>+</button>
     <button onClick={handleLogout}  className='LogoutBtn' >Logout</button>
+    <button onClick={toggleDisplay} className='showChart' >📈</button>
     <QuestionModal setLoadDisplay={setLoadDisplay}/>
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
@@ -74,6 +77,26 @@ return (
        return  <Question setLoadDisplay={setLoadDisplay} setDisplayArray={setDisplayArray} question={e} />
     })  }
     </div>
+
+        <div className='chartContainer displayNone' >
+        <Doughnut data={{
+            labels:['Acertos','Erros'],
+            datasets:[
+                {      
+                    
+                  data:[1,2],
+                  backgroundColor:[
+                    "rgba(43,63,229)",
+                    "rgba(253,135,135)"
+
+                  ],
+                  borderRadius:10,
+                }
+                
+            ]
+
+            }} />
+        </div>
 
 </div>
 );
