@@ -24,7 +24,7 @@ export async function login(userData:any) {
         if(res.status === 200){
             let token = res.data.token
             setItem(token)
-           location.href = location.href.replace("login","app")
+           location.href = location.href.replace("login","")
            
         }
         
