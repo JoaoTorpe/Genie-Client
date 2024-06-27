@@ -7,7 +7,7 @@ import { ProtectedRoute, AlredyAuthenticated } from './ProtectedRoute.tsx';
 
 const router = createBrowserRouter([
         {
-          path: "/app",
+          path: "/",
           element: <ProtectedRoute element={<App/>} />
         },
         {
