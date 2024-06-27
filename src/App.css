@@ -76,7 +76,7 @@
     }
 
     .chartContainer{
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: center;
         top: 10px;
