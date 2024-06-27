@@ -2,7 +2,7 @@
 import './App.css'
 import { QuestionModal } from './Modals/QuestionModal';
 import { toggleDisplay } from './Modals/QuestionModal';
-import { getAllQuestions } from './DataAccess/ApiAccess';
+import { getAllQuestions, getInsights } from './DataAccess/ApiAccess';
 import { ReactNode, useEffect, useState } from 'react';
 import Question from './Components/Question';
 import {Question as QuestionModel} from "./Models/Question"
@@ -33,17 +33,30 @@ export const createQuestionObject = (e:any)=>{
         
 
 }
+class InsightsData{
+    total:number
+    right:number
+    wrong:number
+    
+    constructor(total:number,right:number,wrong:number){
+        this.total = total
+        this.right = right
+        this.wrong = wrong
 
+    }
+}
 
  function App() {
 
     const [displayArray, setDisplayArray] = useState<any[]>([]);
     const [loadDisplay, setLoadDisplay] = useState<boolean>(false);
-    
+    const [insightsData,setInsightsData] = useState<InsightsData>(new InsightsData(0,0,0))
     useEffect(() => {
         async function fetchData() {
             try {
-                let fetchedData = await getAllQuestions();
+                let insights = await getInsights()
+                setInsightsData(new InsightsData(insights.total,insights.right,insights.wrong))
+                let fetchedData = await getAllQuestions()
                 let tempArray:any[] = []
                 fetchedData.map((e:any)=>{
                   let newObj =  createQuestionObject(e)
@@ -84,7 +97,7 @@ return (
             datasets:[
                 {      
                     
-                  data:[1,2],
+                  data:[insightsData.right,insightsData.wrong],
                   backgroundColor:[
                     "rgba(43,63,229)",
                     "rgba(253,135,135)"

@@ -8,11 +8,9 @@ export const toggleDisplay = (event:any)=>{
     let element
     if(event.target.classList.contains("createQuestion")){
          element =  document.getElementById("questionFormContainer")
-         console.log(element)
     }
     else if(event.target.classList.contains("showChart")){
         element =  document.querySelector(".chartContainer")
-        console.log(element)
     }
 
 

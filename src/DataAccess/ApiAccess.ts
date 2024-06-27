@@ -47,3 +47,11 @@ export async function postQuestion(newQuestionData:any){
        
       }
 
+      export async function getInsights(){
+
+        const res = await axios.get(import.meta.env.VITE_API_URL+"questions/insights",bearer)
+
+        return res.data
+        
+      }
+
