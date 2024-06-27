@@ -77,7 +77,6 @@ const handleLogout = ()=>{
     location.reload()
 }
 
-
 return (
 <div id='mainPage' >
     <button onClick={toggleDisplay} className='createQuestion'>+</button>
@@ -87,7 +86,7 @@ return (
     { displayArray.length ===0? <Empty />:""}
     <div className='questionsContainer'>
     {displayArray.map((e):ReactNode=>{
-       return  <Question setLoadDisplay={setLoadDisplay} setDisplayArray={setDisplayArray} question={e} />
+     return  <Question setLoadDisplay={setLoadDisplay} setDisplayArray={setDisplayArray} question={e} />
     })  }
     </div>
 
@@ -105,10 +104,14 @@ return (
                   ],
                   borderRadius:10,
                 }
-                
             ]
-
             }} />
+            <div className='insightsDetails' >
+            <p>Total: {insightsData.total}</p>
+            <p>Acertos: {insightsData.right}</p>
+            <p>Erros: {insightsData.wrong}</p>
+            <p>Precisão: {Math.floor( (insightsData.right / insightsData.total)*100)}%</p>
+            </div>
         </div>
 
 </div>
