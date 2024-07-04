@@ -113,3 +113,38 @@
  border: white;
  transition: 0.2s;
     }
+
+    
+    @media (max-width: 810px) {
+        .LogoutBtn{
+         padding: 10px;
+         right:0px
+            }
+    }
+
+    @media (max-width: 510px) {
+        .LogoutBtn{
+         padding: 5px;
+         right:35px
+            }
+    }
+
+    
+    @media (max-width: 431px) {
+        .LogoutBtn{
+         padding: 3px;
+         font-weight: 600;
+         border-radius: 5px;
+         right:45px
+            }
+    }
+    
+
+    @media (max-width: 400px) {
+        .LogoutBtn{
+         padding: 3px;
+         right:5px;
+         font-weight: 600;
+         border-radius: 5px;
+            }
+    }

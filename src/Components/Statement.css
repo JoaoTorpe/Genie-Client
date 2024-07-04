@@ -1,3 +1,45 @@
 .statementTextContainer{
-    width: 700px;
+    width: 800px;
+    font-size: 20px;
+    text-align: justify;
 }
+
+@media (max-width: 1080px) {
+    .statementTextContainer{
+    width: 700px;
+    }
+}
+@media (max-width: 910px) {
+    .statementTextContainer{
+        width: 600px;
+        }
+}
+
+@media (max-width: 810px) {
+    .statementTextContainer{
+        width: 550px;
+        font-size: 18px;
+        }
+}
+
+@media (max-width: 710px) {
+    .statementTextContainer{
+        width: 400px;
+        font-size: 15px;
+        }
+}
+
+@media (max-width: 610px) {
+    .statementTextContainer{
+        width: 300px;
+        font-size: 15px;
+        }
+}
+
+@media (max-width: 510px) {
+    .statementTextContainer{
+        width: 200px;
+        font-size: 13px;
+        }
+}
+

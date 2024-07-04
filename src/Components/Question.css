@@ -28,3 +28,43 @@ background-color: rgb(3, 176, 3);
     background-color: rgb(205, 28, 28);
 
 }
+
+@media (max-width: 1080px) {
+    .question{
+    width: 700px;
+    }
+}
+@media (max-width: 910px) {
+    .question{
+        width: 600px;
+        }
+}
+
+@media (max-width: 810px) {
+    .question{
+        width: 500px;
+        }
+}
+@media (max-width: 710px) {
+    .question{
+        width: 400px;
+        }
+}
+
+@media (max-width: 610px) {
+    .question{
+        width: 300px;
+        }
+}
+
+@media (max-width: 510px) {
+    .question{
+        width: 200px;
+        }
+    .question span{
+        position: absolute;
+        right: 5px;
+        }
+
+}
+

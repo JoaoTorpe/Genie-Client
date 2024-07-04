@@ -13,3 +13,40 @@ align-items: center;
 .headerWrapper h4{
     margin-left: 10px;
 }
+
+@media (max-width: 1080px) {
+    .headerWrapper{
+    width: 700px;
+    }
+}
+@media (max-width: 910px) {
+    .headerWrapper{
+        width: 600px;
+        }
+}
+@media (max-width: 810px) {
+    .headerWrapper{
+        width: 550px;
+        }
+}
+
+@media (max-width: 710px) {
+    .headerWrapper{
+        width: 400px;
+        }
+}
+
+@media (max-width: 610px) {
+    .headerWrapper{
+        width: 300px;
+        }
+}
+
+@media (max-width: 510px) {
+    .headerWrapper{
+        width: 200px;
+        font-size: 13px;
+        }
+}
+
+
