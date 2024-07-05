@@ -1,5 +1,5 @@
 
-import "./questionModal.css"
+import "./QuestionModal.css"
 import run from "../DataAccess/Gemini-start"
 import { useState } from "react"
 import ClipLoader from "react-spinners/ClipLoader";
