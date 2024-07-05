@@ -1,7 +1,13 @@
 #questionFormContainer{
+    border: solid black;
+    border-radius: 10px;
    position: absolute;
-   top: 80px;
-   left: 10px;
+   top: 10%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 40px;
+   background-color: white;
+   z-index: 999;
   }
 
 #questionForm{
@@ -19,6 +25,12 @@
 
 #generateQuestionButton{
     cursor: pointer;
+    background-color: #3A86FF;
+    border:none;
+    color: white;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .loadingIconContainer{
